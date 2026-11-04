@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="الدليل الإرشادي لتخصص هندسة أمن المعلومات السيبراني - الكلية الجامعية للعلوم التطبيقية UCAS" />
+    <title>الدليل الإرشادي | هندسة أمن المعلومات السيبراني - UCAS</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <style>
+        :root {
+            --primary: #005baa;
+            --primary-light: #0077cc;
+            --primary-dark: #004080;
+            --accent: #62bb46;
+            --accent-light: #7bd45e;
+            --accent-dark: #4a9a35;
+            --bg: #f0f5fa;
+            --card-bg: rgba(255, 255, 255, 0.94);
+            --text: #1a1a2e;
+            --text-light: #4a5265;
+            --text-muted: #7a8295;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.14);
+            --radius: 18px;
+            --radius-sm: 12px;
+            --transition: 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --border-color: rgba(0, 91, 170, 0.12);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0a0e17;
+            --card-bg: rgba(20, 30, 50, 0.95);
+            --text: #e8e8e8;
+            --text-light: #b0b0c0;
+            --text-muted: #8888a0;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            --shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-tap-highlight-color: transparent;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+
+        .scroll-progress {
+            position: fixed; top: 0; left: 0; width: 0%; height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            z-index: 9998; transition: width 0.08s ease;
+            box-shadow: 0 0 12px rgba(98, 187, 70, 0.4);
+        }
+
+        .dark-mode-toggle {
+            position: fixed; top: 18px; left: 18px; width: 48px; height: 48px;
+            border-radius: 50%; background: var(--card-bg); border: 2px solid var(--accent);
+            color: var(--accent); font-size: 20px; cursor: pointer; z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s ease; box-shadow: var(--shadow);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            outline: none;
+        }
+        .dark-mode-toggle:hover { transform: scale(1.1); background: var(--primary); color: #fff; border-color: var(--primary); }
+
+        /* Cover */
+        .guide-cover {
+            background: linear-gradient(145deg, var(--primary) 0%, var(--primary-dark) 70%, var(--primary-light) 100%);
+            color: #fff; padding: 70px 24px 60px; text-align: center;
+            position: relative; overflow: hidden; min-height: 380px;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+        .guide-cover::before {
+            content: ''; position: absolute; top: -50%; right: -15%;
+            width: 520px; height: 520px; border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .guide-cover::after {
+            content: ''; position: absolute; bottom: -40%; left: -10%;
+            width: 400px; height: 400px; border-radius: 50%;
+            background: rgba(98, 187, 70, 0.08);
+        }
+
+        .logo-box {
+            background: #fff; border-radius: 16px; padding: 14px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px; position: relative; z-index: 2;
+            display: inline-flex; align-items: center; gap: 12px;
+        }
+        .logo-box i { font-size: 32px; color: var(--primary); }
+        .logo-box span { font-weight: 800; font-size: 0.95rem; color: var(--primary-dark); line-height: 1.3; text-align: right; }
+
+        .badge-row {
+            display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+            margin-bottom: 18px; position: relative; z-index: 2;
+        }
+        .badge {
+            background: rgba(255, 255, 255, 0.18); backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.25); color: #fff;
+            padding: 8px 16px; border-radius: 50px; font-size: 0.88rem; font-weight: 600;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+
+        .guide-cover h1 {
+            font-size: clamp(1.5rem, 4.5vw, 2.2rem); font-weight: 800;
+            margin-bottom: 8px; position: relative; z-index: 2; line-height: 1.35;
+        }
+        .guide-cover .en-title {
+            font-size: 1.05rem; opacity: 0.9; font-weight: 500;
+            margin-bottom: 6px; position: relative; z-index: 2;
+        }
+        .guide-cover .subtitle {
+            font-size: 0.98rem; opacity: 0.88; font-weight: 400;
+            position: relative; z-index: 2; max-width: 520px;
+        }
+
+        /* Download button in cover */
+        .download-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--accent); color: #fff; border: none;
+            padding: 14px 28px; border-radius: 50px; font-family: 'Cairo', sans-serif;
+            font-size: 1.05rem; font-weight: 700; cursor: pointer;
+            margin-top: 22px; position: relative; z-index: 2;
+            box-shadow: 0 8px 24px rgba(98, 187, 70, 0.4);
+            transition: all 0.3s ease; text-decoration: none;
+        }
+        .download-btn:hover {
+            background: var(--accent-dark); transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(98, 187, 70, 0.5);
+        }
+        .download-btn i { font-size: 1.2rem; }
+
+        /* TOC */
+        .toc {
+            background: var(--card-bg); border-radius: var(--radius);
+            padding: 22px 24px; margin: -36px auto 0; max-width: 860px;
+            box-shadow: var(--shadow); border: 1px solid var(--border-color);
+            position: relative; z-index: 5; width: calc(100% - 36px);
+        }
+        .toc h3 {
+            font-size: 1.08rem; font-weight: 700; color: var(--primary);
+            margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+        }
+        .toc-list {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 6px;
+            list-style: none;
+        }
+        .toc-list a {
+            color: var(--text-light); text-decoration: none; font-size: 0.9rem;
+            display: flex; align-items: center; gap: 8px; padding: 6px 0;
+            transition: color 0.2s;
+        }
+        .toc-list a:hover { color: var(--primary); }
+        .toc-list a .num {
+            background: var(--primary); color: #fff; width: 24px; height: 24px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
+        }
+
+        .container {
+            max-width: 860px; margin: 0 auto; padding: 32px 18px 90px; flex: 1; width: 100%;
+        }
+
+        .section { margin-top: 44px; }
+        .section-header {
+            display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+        }
+        .section-number {
+            width: 42px; height: 42px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.15rem; flex-shrink: 0;
+            box-shadow: 0 4px 14px rgba(0, 91, 170, 0.3);
+        }
+        .section-header h2 {
+            font-size: 1.28rem; font-weight: 700; color: var(--primary); line-height: 1.4;
+        }
+        .section-header h2 span {
+            display: block; height: 3px; width: 55px; background: var(--accent);
+            border-radius: 3px; margin-top: 6px;
+        }
+
+        .card {
+            background: var(--card-bg); border-radius: var(--radius);
+            padding: 22px 20px; margin-bottom: 14px;
+            box-shadow: var(--shadow); border: 1px solid var(--border-color);
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+        .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+        .card h3 {
+            font-size: 1.08rem; font-weight: 700; color: var(--text);
+            margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+        }
+        .card h3 i { color: var(--primary); font-size: 1.05rem; }
+        .card p, .card li { color: var(--text-light); font-size: 0.96rem; }
+        .card ul { list-style: none; padding: 0; }
+        .card ul li {
+            position: relative; padding-right: 20px; margin-bottom: 9px;
+        }
+        .card ul li::before {
+            content: ''; position: absolute; right: 0; top: 10px;
+            width: 7px; height: 7px; background: var(--accent); border-radius: 50%;
+        }
+
+        /* Tables */
+        .table-wrap {
+            overflow-x: auto; margin: 12px 0; border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+        }
+        table {
+            width: 100%; border-collapse: collapse; font-size: 0.9rem;
+            background: var(--card-bg);
+        }
+        th {
+            background: var(--primary); color: #fff; padding: 12px 14px;
+            text-align: right; font-weight: 700; white-space: nowrap;
+        }
+        td {
+            padding: 11px 14px; border-bottom: 1px solid var(--border-color);
+            color: var(--text-light); vertical-align: top;
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) td { background: rgba(0, 91, 170, 0.03); }
+        [data-theme="dark"] tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
+
+        .tip-box, .note-box, .highlight-box {
+            border-radius: var(--radius-sm); padding: 15px 17px; margin: 14px 0;
+            display: flex; gap: 12px; align-items: flex-start;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, rgba(98, 187, 70, 0.1), rgba(98, 187, 70, 0.05));
+            border-right: 4px solid var(--accent);
+        }
+        .tip-box i { color: var(--accent); font-size: 1.2rem; margin-top: 3px; flex-shrink: 0; }
+        .note-box {
+            background: linear-gradient(135deg, rgba(0, 91, 170, 0.08), rgba(0, 119, 204, 0.04));
+            border-right: 4px solid var(--primary);
+        }
+        .note-box i { color: var(--primary); font-size: 1.2rem; margin-top: 3px; flex-shrink: 0; }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.08), rgba(155, 89, 182, 0.04));
+            border-right: 4px solid #9b59b6;
+        }
+        .highlight-box i { color: #9b59b6; font-size: 1.2rem; margin-top: 3px; flex-shrink: 0; }
+        .tip-box p, .note-box p, .highlight-box p { margin: 0; color: var(--text-light); font-size: 0.94rem; }
+
+        .faq-item {
+            background: var(--card-bg); border-radius: var(--radius-sm);
+            padding: 16px 18px; margin-bottom: 10px;
+            border: 1px solid var(--border-color);
+        }
+        .faq-item h4 {
+            font-size: 0.98rem; font-weight: 700; color: var(--primary);
+            margin-bottom: 6px; display: flex; gap: 8px; align-items: flex-start;
+        }
+        .faq-item h4 span {
+            background: var(--primary); color: #fff; font-size: 0.75rem;
+            padding: 2px 8px; border-radius: 6px; flex-shrink: 0; margin-top: 3px;
+        }
+        .faq-item p { color: var(--text-light); font-size: 0.93rem; margin: 0; }
+
+        .feature-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px; margin-top: 8px;
+        }
+        .feature-item {
+            background: var(--card-bg); border-radius: var(--radius-sm);
+            padding: 18px 14px; border: 1px solid var(--border-color);
+            text-align: center; transition: transform var(--transition);
+        }
+        .feature-item:hover { transform: translateY(-3px); }
+        .feature-item .icon {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, rgba(0, 91, 170, 0.12), rgba(0, 119, 204, 0.08));
+            color: var(--primary); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.25rem; margin: 0 auto 10px;
+        }
+        .feature-item h4 { font-size: 0.98rem; font-weight: 700; margin-bottom: 5px; }
+        .feature-item p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
+
+        .checklist {
+            list-style: none; padding: 0;
+        }
+        .checklist li {
+            display: flex; gap: 12px; align-items: flex-start;
+            padding: 10px 0; border-bottom: 1px solid var(--border-color);
+            color: var(--text-light); font-size: 0.95rem;
+        }
+        .checklist li:last-child { border-bottom: none; }
+        .checklist li i {
+            color: var(--accent); font-size: 1.1rem; margin-top: 3px; flex-shrink: 0;
+        }
+
+        .summary-box {
+            background: linear-gradient(145deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #fff; border-radius: var(--radius); padding: 28px 24px;
+            margin-top: 48px; box-shadow: 0 12px 40px rgba(0, 91, 170, 0.25);
+            text-align: center;
+        }
+        .summary-box h2 {
+            font-size: 1.25rem; font-weight: 800; margin-bottom: 14px;
+        }
+        .summary-box p {
+            font-size: 1rem; opacity: 0.95; line-height: 1.8; max-width: 640px; margin: 0 auto 20px;
+        }
+        .summary-box .download-btn {
+            margin-top: 8px; background: #fff; color: var(--primary);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        .summary-box .download-btn:hover {
+            background: var(--accent); color: #fff;
+        }
+
+        .back-to-top {
+            position: fixed; bottom: 24px; left: 24px; width: 48px; height: 48px;
+            background: var(--accent); color: #fff; border: none; border-radius: 50%;
+            font-size: 1.2rem; cursor: pointer;
+            box-shadow: 0 6px 20px rgba(98, 187, 70, 0.4);
+            opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 100;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        .back-to-top:hover { transform: translateY(-4px); background: var(--accent-dark); }
+
+        /* Floating download */
+        .float-download {
+            position: fixed; bottom: 24px; right: 24px; z-index: 100;
+            display: flex; align-items: center; gap: 8px;
+            background: var(--accent); color: #fff; border: none;
+            padding: 12px 20px; border-radius: 50px; font-family: 'Cairo', sans-serif;
+            font-size: 0.95rem; font-weight: 700; cursor: pointer;
+            box-shadow: 0 6px 22px rgba(98, 187, 70, 0.45);
+            transition: all 0.3s ease; text-decoration: none;
+        }
+        .float-download:hover {
+            background: var(--accent-dark); transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center; padding: 22px 16px; color: var(--text-muted);
+            font-size: 0.88rem; border-top: 1px solid var(--border-color); margin-top: auto;
+        }
+
+        @media (max-width: 600px) {
+            .guide-cover { padding: 55px 16px 50px; min-height: 340px; }
+            .toc { padding: 16px; }
+            .toc-list { grid-template-columns: 1fr; }
+            .section-header h2 { font-size: 1.12rem; }
+            .card { padding: 16px 14px; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .float-download span { display: none; }
+            .float-download { padding: 14px; border-radius: 50%; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <button class="dark-mode-toggle" id="darkToggle" aria-label="تبديل الوضع الليلي">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <button class="back-to-top" id="backToTop" aria-label="العودة للأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <a class="float-download" href="الدليل_الإرشادي_هندسة_أمن_المعلومات_السيبراني_UCAS-2.pdf" download="الدليل_الإرشادي_هندسة_أمن_المعلومات_السيبراني_UCAS.pdf">
+        <i class="fas fa-file-pdf"></i>
+        <span>تحميل PDF</span>
+    </a>
+
+    <!-- Cover -->
+    <header class="guide-cover">
+        <div class="logo-box">
+            <i class="fas fa-shield-halved"></i>
+            <span>الكلية الجامعية للعلوم التطبيقية<br>UCAS — عمادة الهندسة والنظم الذكية</span>
+        </div>
+
+        <div class="badge-row">
+            <span class="badge"><i class="fas fa-pen-fancy"></i> إعداد: Eng. Deema Megharee</span>
+            <span class="badge"><i class="fas fa-calendar"></i> 2026 – 2027</span>
+            <span class="badge"><i class="fas fa-graduation-cap"></i> Academic & Career Guide</span>
+        </div>
+
+        <h1>الدليل الإرشادي<br>هندسة أمن المعلومات السيبراني</h1>
+        <p class="en-title">Cybersecurity Information Engineering</p>
+        <p class="subtitle">دليلك لاختيار تخصصك وفهم مستقبلك الأكاديمي والمهني</p>
+
+        <a class="download-btn" href="الدليل_الإرشادي_هندسة_أمن_المعلومات_السيبراني_UCAS-2.pdf" download="الدليل_الإرشادي_هندسة_أمن_المعلومات_السيبراني_UCAS.pdf">
+            <i class="fas fa-download"></i>
+            تحميل النسخة الكاملة PDF
+        </a>
+    </header>
+
+    <!-- TOC -->
+    <nav class="toc">
+        <h3><i class="fas fa-list"></i> فهرس المحتويات</h3>
+        <ul class="toc-list">
+            <li><a href="#s1"><span class="num">1</span> مقدمة الدليل</a></li>
+            <li><a href="#s2"><span class="num">2</span> التعريف بالتخصص</a></li>
+            <li><a href="#s3"><span class="num">3</span> لماذا نحتاج إلى الأمن السيبراني؟</a></li>
+            <li><a href="#s4"><span class="num">4</span> المعلومات الأكاديمية عن البرنامج</a></li>
+            <li><a href="#s5"><span class="num">5</span> ماذا يدرس الطالب؟</a></li>
+            <li><a href="#s6"><span class="num">6</span> المجالات المهنية</a></li>
+            <li><a href="#s7"><span class="num">7</span> مجالات العمل وفرص المستقبل</a></li>
+            <li><a href="#s8"><span class="num">8</span> التخصصات المشابهة</a></li>
+            <li><a href="#s9"><span class="num">9</span> المهارات المطلوبة</a></li>
+            <li><a href="#s10"><span class="num">10</span> الأسئلة الشائعة</a></li>
+            <li><a href="#s11"><span class="num">11</span> الشهادات المهنية</a></li>
+            <li><a href="#s12"><span class="num">12</span> نصائح للراغبين في الالتحاق</a></li>
+            <li><a href="#s13"><span class="num">13</span> مصطلحات مهمة</a></li>
+            <li><a href="#s14"><span class="num">14</span> هل يناسبني هذا التخصص؟</a></li>
+            <li><a href="#s15"><span class="num">15</span> رسالة ختامية</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+
+        <!-- 1 -->
+        <section class="section" id="s1">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2>مقدمة الدليل<span></span></h2>
+            </div>
+            <div class="card">
+                <p>
+                    يهدف هذا الدليل إلى تعريف طلبة الثانوية العامة والطلبة الجدد وأولياء الأمور بتخصص <strong>هندسة أمن المعلومات السيبراني</strong>، من حيث طبيعته الأكاديمية ومجالاته المهنية والمهارات التي يحتاجها الطالب للنجاح فيه، وكيف يختلف عن التخصصات التقنية القريبة منه.
+                </p>
+            </div>
+        </section>
+
+        <!-- 2 -->
+        <section class="section" id="s2">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2>التعريف بالتخصص<span></span></h2>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-shield-halved"></i> ما هو التخصص؟</h3>
+                <p>
+                    يُعدّ تخصص <strong>هندسة أمن المعلومات السيبراني (Cybersecurity Information Engineering)</strong> تخصصًا هندسيًا وتقنيًا يُعنى بتصميم وتطوير وتنفيذ وإدارة التقنيات والحلول والإجراءات اللازمة لحماية أنظمة الحاسوب والشبكات والتطبيقات والبيانات من التهديدات والمخاطر والهجمات السيبرانية.
+                </p>
+                <p style="margin-top: 12px;">
+                    يرتكز التخصص على دراسة المبادئ الأساسية للحوسبة والشبكات وأنظمة التشغيل والبرمجيات، وفهم آليات عملها وتحليل نقاط الضعف والثغرات الأمنية فيها، وتوظيف المعارف الهندسية والتقنيات المتخصصة لتقييم المخاطر الأمنية والحد منها، وتعزيز قدرة الأنظمة الرقمية على مواجهة التهديدات والتعامل مع الحوادث الأمنية.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-lock"></i> مبادئ أمن المعلومات الأساسية (CIA)</h3>
+                <ul>
+                    <li><strong>السرية (Confidentiality):</strong> قصر الوصول إلى المعلومات على الأشخاص والجهات المصرّح لهم.</li>
+                    <li><strong>السلامة (Integrity):</strong> ضمان دقة المعلومات وحمايتها من التعديل أو الإتلاف غير المصرّح به.</li>
+                    <li><strong>التوافر (Availability):</strong> إمكانية الوصول إلى المعلومات والأنظمة واستخدامها عند الحاجة.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-table"></i> الفرق بين المصطلحات المتقاربة</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>المفهوم</th>
+                                <th>التوضيح</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>أمن المعلومات</strong><br>Information Security</td>
+                                <td>حماية المعلومات بمختلف أشكالها، رقمية كانت أو ورقية.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>الأمن السيبراني</strong><br>Cybersecurity</td>
+                                <td>حماية الأنظمة والشبكات والأجهزة والتطبيقات والبيانات في البيئة الرقمية.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>أمن الشبكات</strong><br>Network Security</td>
+                                <td>حماية شبكات الحاسوب والاتصالات والأجهزة المتصلة بها.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>أمن التطبيقات</strong><br>Application Security</td>
+                                <td>حماية البرمجيات والمواقع والتطبيقات من الثغرات والهجمات.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3 -->
+        <section class="section" id="s3">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2>لماذا نحتاج إلى الأمن السيبراني؟<span></span></h2>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="icon"><i class="fas fa-user-shield"></i></div>
+                    <h4>حماية الحسابات الشخصية</h4>
+                    <p>والبيانات الحساسة للأفراد</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon"><i class="fas fa-building"></i></div>
+                    <h4>حماية المؤسسات</h4>
+                    <p>الجامعات والمستشفيات والبنوك</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon"><i class="fas fa-landmark"></i></div>
+                    <h4>تأمين الخدمات الحكومية</h4>
+                    <p>والأنظمة الرقمية والبنية التحتية الحيوية</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon"><i class="fas fa-user-secret"></i></div>
+                    <h4>مواجهة الاحتيال</h4>
+                    <p>الإلكتروني وسرقة الهوية</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon"><i class="fas fa-sync"></i></div>
+                    <h4>استمرارية الخدمات</h4>
+                    <p>ضمان عمل الأنظمة الرقمية دون انقطاع</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon"><i class="fas fa-handshake"></i></div>
+                    <h4>تعزيز الثقة</h4>
+                    <p>في التجارة الإلكترونية والخدمات التقنية</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 -->
+        <section class="section" id="s4">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2>المعلومات الأكاديمية عن البرنامج<span></span></h2>
+            </div>
+            <div class="card">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>البند</th>
+                                <th>التفاصيل</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>الدرجة العلمية</td>
+                                <td><strong>بكالوريوس</strong></td>
+                            </tr>
+                            <tr>
+                                <td>مدة الدراسة</td>
+                                <td><strong>4 سنوات</strong></td>
+                            </tr>
+                            <tr>
+                                <td>الساعات المعتمدة</td>
+                                <td><strong>144 ساعة معتمدة</strong></td>
+                            </tr>
+                            <tr>
+                                <td>القسم</td>
+                                <td>هندسة الحاسوب (عمادة الهندسة والنظم الذكية)</td>
+                            </tr>
+                            <tr>
+                                <td>الحد الأدنى المنشور للقبول</td>
+                                <td><strong>80%</strong></td>
+                            </tr>
+                            <tr>
+                                <td>فروع الثانوية العامة المقبولة</td>
+                                <td>العلمي، الصناعي، التكنولوجيا</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5 -->
+        <section class="section" id="s5">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2>ماذا يدرس الطالب؟<span></span></h2>
+            </div>
+            <div class="card">
+                <p style="margin-bottom: 14px;">
+                    يتدرج الطالب من الأساسيات إلى الموضوعات المتخصصة، ويجمع بين المعرفة النظرية والتطبيق العملي في المختبرات والتمارين والمشاريع.
+                </p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>المجال</th>
+                                <th>ماذا يتعلم الطالب؟</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>أساسيات الحاسوب</td><td>مكونات الحاسوب وطريقة عمله</td></tr>
+                            <tr><td>البرمجة</td><td>كتابة البرامج وفهم الخوارزميات وحل المشكلات</td></tr>
+                            <tr><td>شبكات الحاسوب</td><td>كيفية انتقال البيانات واتصال الأجهزة</td></tr>
+                            <tr><td>قواعد البيانات</td><td>تخزين المعلومات وتنظيمها وإدارتها</td></tr>
+                            <tr><td>أنظمة التشغيل</td><td>فهم نظامي Linux و Windows وإدارة الأنظمة</td></tr>
+                            <tr><td>التشفير (Cryptography)</td><td>حماية المعلومات بالأساليب الرياضية والتقنية</td></tr>
+                            <tr><td>أمن الشبكات</td><td>حماية البنية التحتية والشبكات</td></tr>
+                            <tr><td>أمن تطبيقات الويب</td><td>اكتشاف الثغرات وحماية التطبيقات</td></tr>
+                            <tr><td>اختبار الاختراق</td><td>تقييم أمن الأنظمة بصورة قانونية ومصرّح بها</td></tr>
+                            <tr><td>إدارة المخاطر</td><td>تحديد المخاطر الأمنية وتقييمها ومعالجتها</td></tr>
+                            <tr><td>الاستجابة للحوادث</td><td>اكتشاف الهجمات وتحليلها والتعامل معها</td></tr>
+                            <tr><td>الأدلة الرقمية</td><td>جمع الأدلة الرقمية وتحليلها والمحافظة عليها</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="note-box" style="margin-top: 14px;">
+                    <i class="fas fa-info-circle"></i>
+                    <p>هذه المجالات للتعريف العام بالتخصص، وتُعدّ الخطة الدراسية الرسمية المعتمدة المرجعَ في أسماء المساقات وتفاصيلها.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 -->
+        <section class="section" id="s6">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2>المجالات المهنية في الأمن السيبراني<span></span></h2>
+            </div>
+            <div class="card">
+                <p style="margin-bottom: 14px;">
+                    يمكن للطالب أن يوجّه مهاراته نحو مجال مهني أو أكثر خلال دراسته وبعد تخرجه. هذه المجالات مهنية وليست بالضرورة مسارات أكاديمية رسمية منفصلة داخل البرنامج.
+                </p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>المجال المهني</th>
+                                <th>وظائف محتملة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>أمن الشبكات والبنية التحتية</td><td>Network Security Engineer</td></tr>
+                            <tr><td>2</td><td>إدارة الشبكات وتشغيلها</td><td>Network Administrator / Engineer</td></tr>
+                            <tr><td>3</td><td>إدارة الأنظمة والخوادم</td><td>System / Linux / Server Administrator</td></tr>
+                            <tr><td>4</td><td>المراقبة الأمنية وتحليل التهديدات (SOC)</td><td>SOC Analyst / Threat Detection Analyst</td></tr>
+                            <tr><td>5</td><td>إدارة حلول الأمن والحماية المؤسسية</td><td>Cybersecurity Engineer / Endpoint Security Admin</td></tr>
+                            <tr><td>6</td><td>تقييم الثغرات واختبار الاختراق</td><td>Penetration Tester / Vulnerability Analyst</td></tr>
+                            <tr><td>7</td><td>أمن تطبيقات الويب والواجهات البرمجية</td><td>Application / Web / API Security Analyst</td></tr>
+                            <tr><td>8</td><td>الاستجابة للحوادث الأمنية</td><td>Incident Response Analyst</td></tr>
+                            <tr><td>9</td><td>الأدلة الجنائية الرقمية</td><td>Digital Forensics Analyst</td></tr>
+                            <tr><td>10</td><td>إدارة الهوية والصلاحيات (IAM)</td><td>IAM Analyst / Identity Security Specialist</td></tr>
+                            <tr><td>11</td><td>أمن الحوسبة السحابية</td><td>Cloud Security Analyst / Engineer</td></tr>
+                            <tr><td>12</td><td>الحوكمة والمخاطر والامتثال (GRC)</td><td>GRC Analyst / Information Security Auditor</td></tr>
+                            <tr><td>13</td><td>أمن المعلومات في المؤسسات</td><td>Information Security Officer / Specialist</td></tr>
+                            <tr><td>14</td><td>البحث والتطوير الأمني</td><td>Cybersecurity Researcher / Tools Developer</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="note-box" style="margin-top: 12px;">
+                    <i class="fas fa-info-circle"></i>
+                    <p>المسميات الوظيفية استرشادية، وقد تختلف تسمياتها ومتطلباتها من مؤسسة إلى أخرى.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7 -->
+        <section class="section" id="s7">
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <h2>مجالات العمل وفرص المستقبل<span></span></h2>
+            </div>
+            <div class="card">
+                <p>يمكن للخريج بناء مساره المهني في قطاعات متعددة، منها:</p>
+                <ul>
+                    <li>البنوك والمؤسسات المالية</li>
+                    <li>شركات الاتصالات ومزودو خدمات الإنترنت</li>
+                    <li>الوزارات والمؤسسات الحكومية</li>
+                    <li>الجامعات والمستشفيات</li>
+                    <li>شركات التكنولوجيا والبرمجيات</li>
+                    <li>شركات الأمن السيبراني والاستشارات التقنية</li>
+                    <li>مراكز عمليات الأمن (SOC)</li>
+                    <li>المؤسسات الدولية</li>
+                </ul>
+                <div class="tip-box" style="margin-top: 12px;">
+                    <i class="fas fa-lightbulb"></i>
+                    <p>تتوافر في بعض الوظائف التقنية فرص للعمل عن بُعد، بحسب الخبرة وطبيعة الوظيفة وسياسة صاحب العمل.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8 -->
+        <section class="section" id="s8">
+            <div class="section-header">
+                <div class="section-number">8</div>
+                <h2>التخصصات المشابهة وكيف نميّز بينها؟<span></span></h2>
+            </div>
+            <div class="card">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>التخصص</th>
+                                <th>الدرجة</th>
+                                <th>المدة</th>
+                                <th>الساعات</th>
+                                <th>السؤال الذي يجيب عنه</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>هندسة أمن المعلومات السيبراني</strong></td>
+                                <td>بكالوريوس</td>
+                                <td>4 سنوات</td>
+                                <td>144</td>
+                                <td>كيف نحمي الأنظمة والبيانات من الهجمات؟</td>
+                            </tr>
+                            <tr>
+                                <td>علم البيانات والذكاء الاصطناعي</td>
+                                <td>بكالوريوس</td>
+                                <td>4 سنوات</td>
+                                <td>138</td>
+                                <td>كيف نستخرج المعرفة من البيانات ونبني أنظمة ذكية؟</td>
+                            </tr>
+                            <tr>
+                                <td>تصميم وبرمجة تطبيقات الموبايل</td>
+                                <td>بكالوريوس</td>
+                                <td>4 سنوات</td>
+                                <td>132</td>
+                                <td>كيف نصمم ونبرمج تطبيقات الهواتف الذكية؟</td>
+                            </tr>
+                            <tr>
+                                <td>أمن المعلومات</td>
+                                <td>دبلوم متوسط</td>
+                                <td>سنتان</td>
+                                <td>74</td>
+                                <td>ما أساسيات ومهارات حماية المعلومات؟</td>
+                            </tr>
+                            <tr>
+                                <td>شبكات الحاسوب والإنترنت</td>
+                                <td>دبلوم متوسط</td>
+                                <td>سنتان</td>
+                                <td>74</td>
+                                <td>كيف نصمم الشبكات ونشغّلها ونديرها؟</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-compass"></i> كيف أختار؟</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>إذا كنت تحب...</th>
+                                <th>فالأقرب لاهتمامك</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>اكتشاف الثغرات وحماية الأنظمة</td><td><strong>هندسة أمن المعلومات السيبراني</strong></td></tr>
+                            <tr><td>تحليل البيانات وبناء النماذج الذكية</td><td>علم البيانات والذكاء الاصطناعي</td></tr>
+                            <tr><td>البرمجة وتطوير تطبيقات الهواتف</td><td>تصميم وبرمجة تطبيقات الموبايل</td></tr>
+                            <tr><td>إعداد الشبكات وإدارتها</td><td>شبكات الحاسوب والإنترنت</td></tr>
+                            <tr><td>أساسيات حماية المعلومات ضمن برنامج دبلوم</td><td>أمن المعلومات (دبلوم)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="highlight-box" style="margin-top: 12px;">
+                    <i class="fas fa-star"></i>
+                    <p>لا يُنصح باختيار التخصص بسبب اسم جذاب أو وظيفة سُمع عنها فحسب، بل بحسب طبيعة المشكلات التي يحب الطالب حلّها والمهارات التي يرغب في تطويرها.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9 -->
+        <section class="section" id="s9">
+            <div class="section-header">
+                <div class="section-number">9</div>
+                <h2>المهارات التي يحتاج الطالب إلى تطويرها<span></span></h2>
+            </div>
+            <div class="card">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>المهارة</th>
+                                <th>أهميتها</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>التفكير التحليلي والمنطقي</td><td>تحليل المشكلات والسيناريوهات الأمنية وفهم أسبابها</td></tr>
+                            <tr><td>حل المشكلات</td><td>البحث عن حلول للثغرات والتهديدات</td></tr>
+                            <tr><td>البرمجة</td><td>فهم التطبيقات وأتمتة المهام الأمنية</td></tr>
+                            <tr><td>اللغة الإنجليزية</td><td>قراءة المراجع والتوثيقات التقنية والشهادات المهنية</td></tr>
+                            <tr><td>التعلم المستمر</td><td>مواكبة تطور التهديدات والتقنيات</td></tr>
+                            <tr><td>التواصل والعمل الجماعي</td><td>التعاون مع الفرق التقنية المتعددة</td></tr>
+                            <tr><td>كتابة التقارير</td><td>توثيق النتائج والتوصيات الأمنية</td></tr>
+                            <tr><td>الالتزام الأخلاقي</td><td>التعامل المسؤول مع الأنظمة والبيانات</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10 -->
+        <section class="section" id="s10">
+            <div class="section-header">
+                <div class="section-number">10</div>
+                <h2>الأسئلة الشائعة<span></span></h2>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-question-circle"></i> عن طبيعة التخصص</h3>
+
+                <div class="faq-item">
+                    <h4><span>س</span> هل التخصص هو نفسه البرمجة؟</h4>
+                    <p>لا. البرمجة مهارة مهمة، لكنها تركز على بناء التطبيقات والأنظمة، بينما يركز الأمن السيبراني على حمايتها واكتشاف نقاط ضعفها وتأمينها.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><span>س</span> هل يعني التخصص تعلّم الاختراق فقط؟</h4>
+                    <p>لا. الاختراق الأخلاقي أحد المجالات، وهناك أيضًا أمن الشبكات والتطبيقات، والاستجابة للحوادث، والأدلة الرقمية، وإدارة المخاطر والأمن السحابي وغيرها.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><span>س</span> هل سأتعلم اختراق الحسابات والأجهزة؟</h4>
+                    <p>يتعلم الطالب فهم الهجمات وأساليب استغلال الثغرات ضمن بيئات تعليمية ومختبرات مصرّح بها، بهدف اكتشاف نقاط الضعف ومعالجتها. ولا يجوز اختبار أنظمة الآخرين أو حساباتهم دون تصريح قانوني.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><span>س</span> هل يجب أن أكون خبيرًا بالحاسوب قبل الالتحاق؟</h4>
+                    <p>لا. يبدأ الطالب بالأساسيات ويتدرج نحو الموضوعات المتقدمة، لكن الفضول التقني والرغبة في التعلم عاملان مهمان للنجاح.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><span>س</span> هل أحتاج إلى الرياضيات؟</h4>
+                    <p>نعم، تلزم بعض الأساسيات الرياضية والمنطقية، خصوصًا في التشفير والخوارزميات وتحليل البيانات. ولا يُشترط التفوق في كل فروعها مسبقًا، لكن الاستعداد لتطوير هذه المهارة مهم.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><span>س</span> هل أحتاج إلى اللغة الإنجليزية؟</h4>
+                    <p>نعم، فمعظم الأدوات والمراجع والدورات والشهادات المهنية متاحة بالإنجليزية، ويمكن تطوير المستوى تدريجيًا خلال الدراسة.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><span>س</span> هل أحتاج إلى معرفة Python و Linux قبل الجامعة؟</h4>
+                    <p>لا يُشترط ذلك؛ يبدأ الطالب بالأساسيات ويتدرج نحو الموضوعات المتقدمة.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><span>س</span> هل الدراسة نظرية أم عملية؟</h4>
+                    <p>تجمع بين الجانبين: مفاهيم أمنية نظرية، وتطبيق في المختبرات والتمارين والمشاريع.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><span>س</span> هل أحتاج إلى حاسوب شخصي؟</h4>
+                    <p>يُفضّل امتلاك جهاز مناسب للتطبيق العملي والأنظمة الافتراضية. وتوفّر الكلية مختبرات مجهزة للتطبيق العملي خلال المحاضرات.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-university"></i> عن القبول والدراسة</h3>
+                <div class="faq-item">
+                    <h4><span>س</span> ما الفروع المقبولة؟</h4>
+                    <p>العلمي والصناعي والتكنولوجيا، بحد أدنى 80%. ويُرجع إلى إعلان القبول للعام الذي يتقدم فيه الطالب.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><span>س</span> كم مدة الدراسة؟</h4>
+                    <p>أربع سنوات، بواقع 144 ساعة معتمدة.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><span>س</span> هل يمكن متابعة الدراسات العليا؟</h4>
+                    <p>نعم، في البرامج ذات الصلة كالأمن السيبراني وأمن المعلومات وهندسة الحاسوب، وفق شروط الجامعة المستقبِلة.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-briefcase"></i> عن المستقبل الوظيفي</h3>
+                <div class="faq-item">
+                    <h4><span>س</span> هل للأمن السيبراني مستقبل وظيفي؟</h4>
+                    <p>تزداد أهميته مع توسع الاعتماد على الخدمات الرقمية، لكن الحصول على فرصة عمل يعتمد على الكفاءة والخبرة ومتطلبات سوق العمل.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><span>س</span> هل أستطيع العمل خارج فلسطين أو عن بُعد؟</h4>
+                    <p>يمكن التقدم إلى أسواق مختلفة وفق متطلبات صاحب العمل والمهارات واللغة والخبرة، كما تتوافر بعض الوظائف عن بُعد.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><span>س</span> هل التخصص مناسب للطالبات؟</h4>
+                    <p>بالتأكيد؛ فالمجال يعتمد على المعرفة والمهارة والكفاءة، ويمكن للطالبات العمل في جميع مساراته.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><span>س</span> هل التخصص صعب؟</h4>
+                    <p>كغيره من التخصصات الهندسية، يتطلب جهدًا وممارسة وتعلّمًا مستمرًا، ولا يكتفي بالحفظ بل يحتاج إلى فهم عمل الأنظمة وتحليل المشكلات.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11 -->
+        <section class="section" id="s11">
+            <div class="section-header">
+                <div class="section-number">11</div>
+                <h2>الشهادات المهنية والتطوير الذاتي<span></span></h2>
+            </div>
+            <div class="card">
+                <p style="margin-bottom: 12px;">ليست كل الوظائف تشترط شهادات مهنية، لكنها تُثبت المهارات العملية وتعزز السيرة الذاتية. يُنصح باختيار ما يناسب مستوى الطالب وهدفه.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>الشهادة</th>
+                                <th>مجالها</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>CompTIA Security+</td><td>أساسيات الأمن السيبراني</td></tr>
+                            <tr><td>Cisco CCNA</td><td>أساسيات الشبكات</td></tr>
+                            <tr><td>eJPT</td><td>أساسيات اختبار الاختراق</td></tr>
+                            <tr><td>CEH</td><td>الاختراق الأخلاقي</td></tr>
+                            <tr><td>CompTIA CySA+</td><td>تحليل الأمن السيبراني</td></tr>
+                            <tr><td>PNPT</td><td>اختبار الاختراق العملي</td></tr>
+                            <tr><td>CISSP</td><td>شهادة متقدمة للمهنيين ذوي الخبرة</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tip-box" style="margin-top: 14px;">
+                    <i class="fas fa-laptop-code"></i>
+                    <p>
+                        <strong>منصات التدرّب العملي:</strong> TryHackMe، Hack The Box، PortSwigger Web Security Academy، Cisco Skills for All.
+                        <br>
+                        <strong>المسابقات:</strong> Capture The Flag (CTF) تنمّي مهارات تحليل التحديات الأمنية في بيئات آمنة.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12 -->
+        <section class="section" id="s12">
+            <div class="section-header">
+                <div class="section-number">12</div>
+                <h2>نصائح للطلبة الراغبين في الالتحاق<span></span></h2>
+            </div>
+            <div class="card">
+                <ul class="checklist">
+                    <li><i class="fas fa-check-circle"></i> تعرّف إلى أساسيات الحاسوب وطريقة عمله</li>
+                    <li><i class="fas fa-check-circle"></i> ابدأ بأساسيات الشبكات</li>
+                    <li><i class="fas fa-check-circle"></i> تعلّم لغة برمجة مثل Java</li>
+                    <li><i class="fas fa-check-circle"></i> تعرّف إلى نظام Linux</li>
+                    <li><i class="fas fa-check-circle"></i> طوّر مستواك في اللغة الإنجليزية</li>
+                    <li><i class="fas fa-check-circle"></i> تدرّب على حل المشكلات والتفكير المنطقي</li>
+                    <li><i class="fas fa-check-circle"></i> شارك في المسابقات والأنشطة التقنية</li>
+                    <li><i class="fas fa-check-circle"></i> أنشئ مشاريع عملية توثّق ما تعلمته</li>
+                    <li><i class="fas fa-check-circle"></i> لا تكتفِ بتعلّم أدوات الاختراق؛ افهم التقنية التي تعمل خلفها</li>
+                    <li><i class="fas fa-check-circle"></i> التزم بأخلاقيات المهنة والقوانين المتعلقة باستخدام الأنظمة الرقمية</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 13 -->
+        <section class="section" id="s13">
+            <div class="section-header">
+                <div class="section-number">13</div>
+                <h2>مصطلحات مهمة<span></span></h2>
+            </div>
+            <div class="card">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>المصطلح (English)</th>
+                                <th>المعنى</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Cybersecurity</td><td>الأمن السيبراني</td></tr>
+                            <tr><td>Information Security</td><td>أمن المعلومات</td></tr>
+                            <tr><td>Ethical Hacking</td><td>الاختراق الأخلاقي</td></tr>
+                            <tr><td>Penetration Testing</td><td>اختبار الاختراق</td></tr>
+                            <tr><td>Vulnerability</td><td>ثغرة أمنية</td></tr>
+                            <tr><td>Malware</td><td>البرمجيات الخبيثة</td></tr>
+                            <tr><td>Phishing</td><td>التصيد الإلكتروني</td></tr>
+                            <tr><td>Firewall</td><td>الجدار الناري</td></tr>
+                            <tr><td>Encryption</td><td>التشفير</td></tr>
+                            <tr><td>Digital Forensics</td><td>الأدلة الجنائية الرقمية</td></tr>
+                            <tr><td>Incident Response</td><td>الاستجابة للحوادث</td></tr>
+                            <tr><td>Threat Intelligence</td><td>استخبارات التهديدات</td></tr>
+                            <tr><td>Security Operations Center (SOC)</td><td>مركز العمليات الأمنية</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 14 -->
+        <section class="section" id="s14">
+            <div class="section-header">
+                <div class="section-number">14</div>
+                <h2>هل يناسبني هذا التخصص؟<span></span></h2>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-heart"></i> اسأل نفسك بصدق</h3>
+                <ul class="checklist">
+                    <li><i class="fas fa-question"></i> هل تستمتع بفهم كيفية عمل الأشياء والأنظمة التقنية؟</li>
+                    <li><i class="fas fa-question"></i> هل تحب حل الألغاز والمشكلات المعقدة؟</li>
+                    <li><i class="fas fa-question"></i> هل لديك فضول لاكتشاف الأخطاء والثغرات وفهم أسباب حدوثها؟</li>
+                    <li><i class="fas fa-question"></i> هل أهتم بحماية الناس والمؤسسات؟</li>
+                </ul>
+                <div class="tip-box" style="margin-top: 14px;">
+                    <i class="fas fa-lightbulb"></i>
+                    <p>
+                        إن كانت إجاباتك في معظمها «نعم»، فقد يكون هذا التخصص خيارًا مناسبًا لك. هذه الأسئلة للتأمل الذاتي، وليست اختبار قبول ولا حكمًا على قدراتك.
+                        <br><br>
+                        <strong>تذكّر:</strong> ليس مطلوبًا أن تمتلك جميع هذه المهارات قبل الالتحاق؛ فالدراسة الجامعية تمنحك الأساس العلمي والمهارات اللازمة لبنائها وتطويرها تدريجيًا.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 15 -->
+        <section class="section" id="s15">
+            <div class="section-header">
+                <div class="section-number">15</div>
+                <h2>رسالة ختامية<span></span></h2>
+            </div>
+            <div class="summary-box">
+                <h2><i class="fas fa-quote-right"></i> رسالة أخيرة</h2>
+                <p>
+                    الأمن السيبراني ليس مجرد تخصص تتعلم فيه كيف تحمي جهازًا من الاختراق، بل هو مجال يجمع بين التفكير الهندسي والتحليل والبرمجة والشبكات والبحث العلمي، ويهدف إلى بناء بيئة رقمية أكثر أمانًا وموثوقية.
+                    <br><br>
+                    اختيارك له بداية رحلة تحتاج إلى الشغف والممارسة والتعلّم المستمر. لا يُشترط أن تكون خبيرًا قبل الالتحاق؛ المهم أن تمتلك الفضول والرغبة في التعلّم.
+                    <br><br>
+                    <strong>ابدأ بالتعلّم، وواصل التجربة، واجعل من المعرفة التقنية وسيلة لبناء حلول تحمي المجتمع وتخدم مستقبله الرقمي.</strong>
+                </p>
+                <a class="download-btn" href="الدليل_الإرشادي_هندسة_أمن_المعلومات_السيبراني_UCAS-2.pdf" download="الدليل_الإرشادي_هندسة_أمن_المعلومات_السيبراني_UCAS.pdf">
+                    <i class="fas fa-file-pdf"></i>
+                    تحميل الدليل الكامل PDF
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        الدليل الإرشادي — هندسة أمن المعلومات السيبراني | إعداد: Eng. Deema Megharee | الكلية الجامعية للعلوم التطبيقية — UCAS
+    </footer>
+
+    <script>
+        (function () {
+            const darkToggle = document.getElementById('darkToggle');
+            const html = document.documentElement;
+            const backToTop = document.getElementById('backToTop');
+            const progressBar = document.getElementById('scrollProgress');
+
+            function applyTheme(theme) {
+                if (theme === 'dark') {
+                    html.setAttribute('data-theme', 'dark');
+                    darkToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                } else {
+                    html.removeAttribute('data-theme');
+                    darkToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                }
+            }
+
+            try {
+                const saved = localStorage.getItem('theme');
+                applyTheme(saved === 'dark' ? 'dark' : 'light');
+            } catch (e) {
+                applyTheme('light');
+            }
+
+            darkToggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const isDark = html.getAttribute('data-theme') === 'dark';
+                const next = isDark ? 'light' : 'dark';
+                applyTheme(next);
+                try { localStorage.setItem('theme', next); } catch (err) {}
+            });
+
+            window.addEventListener('scroll', function () {
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                if (progressBar) progressBar.style.width = progress + '%';
+
+                if (backToTop) {
+                    if (scrollTop > 400) backToTop.classList.add('visible');
+                    else backToTop.classList.remove('visible');
+                }
+            });
+
+            if (backToTop) {
+                backToTop.addEventListener('click', function () {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>

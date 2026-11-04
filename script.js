@@ -1,5 +1,5 @@
-// ========== بيانات البرامج (18 برنامج) مع الخطط الدراسية الكاملة ==========
-const programs = [
+// ========== البرامج الأكاديمية للقسم ==========
+const allPrograms = [
   // 1. الهندسة المعمارية (دبلوم)
   {
     name: "الهندسة المعمارية",
@@ -1209,413 +1209,47 @@ const programs = [
   },
 ];
 
-// ========== بيانات الهيئة الأكاديمية (جميعهم "مدرس") ==========
-const staffData = {
-  "الهندسة المعمارية والفنون": {
-    رئيس: "هالة سالم عليوة",
-    members: [
-      { name: "امينه عامر حمو", email: "ahamo@ucas.edu.ps", role: "مدرس" },
-      { name: "منى رمضان عليان", email: "mreleyan@ucas.edu.ps", role: "مدرس" },
-      { name: "إسراء حامد العيله", email: "ialaila@ucas.edu.ps", role: "مدرس" },
-      { name: "هبه يوسف هارون", email: "hharon@ucas.edu.ps", role: "مدرس" },
-      { name: "مهند محمد أبوكرش", email: "mkaresh@ucas.edu.ps", role: "مدرس" },
-      { name: "هالة سالم عليوة", email: "heleiwa@ucas.edu.ps", role: "مدرس" },
-      { name: "معتز جمال الأستاذ", email: "mostath@ucas.edu.ps", role: "مدرس" },
-      { name: "محمد مصطفى منصور", email: "mmansour@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "محمد سليمان المعمر",
-        email: "melmoamer@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "علي حسن الشقره", email: "ashaqra@ucas.edu.ps", role: "مدرس" },
-      { name: "علاء الدين صافي", email: "asafi@ucas.edu.ps", role: "مدرس" },
-      { name: "باسم شوقي برهوم", email: "bbarhoom@ucas.edu.ps", role: "مدرس" },
-      { name: "أحمد نعيم الأي", email: "aalay@ucas.edu.ps", role: "مدرس" },
-      { name: "أحمد محمد مطير", email: "amutair@ucas.edu.ps", role: "مدرس" },
-      { name: "مي محمد علي", email: "mali@ucas.edu.ps", role: "مدرس" },
-      { name: "حازم صادق حلس", email: "HHILLIS2@ucas.edu.ps", role: "مدرس" },
-      { name: "أيمن شريف مشتهى", email: "amushtaha@ucas.edu.ps", role: "مدرس" },
-      { name: "أحمد ابراهيم ماضي", email: "ahmadi@ucas.edu.ps", role: "مدرس" },
-      { name: "فداء مصطفى تمراز", email: "ftimraz@ucas.edu.ps", role: "مدرس" },
-      { name: "اميره محمد سكيك", email: "amfskaik@ucas.edu.ps", role: "مدرس" },
-      { name: "أحمد محمد حلس", email: "ahilles@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "إيمان يوسف إسماعيل",
-        email: "EESMAEEL@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "دانه نداء عكيلة", email: "dnakila@ucas.edu.ps", role: "مدرس" },
-      { name: "محمد أيوب راضي", email: "mradi@ucas.edu.ps", role: "مدرس" },
-      { name: "نضال محمد حنونه", email: "nhanouna@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "فداء خالد الحلاق",
-        email: "falhallaq@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "زياد محمد شحاده", email: "zshehada@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "علاء عبدالفتاح إسماعيل",
-        email: "aismail@ucas.edu.ps",
-        role: "مدرس",
-      },
-      {
-        name: "زكريا ابراهيم العصار",
-        email: "zalassar@ucas.edu.ps",
-        role: "مدرس",
-      },
-      {
-        name: "عماد رياض حرزالله",
-        email: "ehirzalla@ucas.edu.ps",
-        role: "مدرس",
-      },
-    ],
-  },
-  "الهندسة المدنية": {
-    رئيس: "صالح سمير أبوشعبان",
-    members: [
-      {
-        name: "مصطفى جهاد الأفغاني",
-        email: "mafghany@ucas.edu.ps",
-        role: "مدرس",
-      },
-      {
-        name: "لؤي إبراهيم القريناوي",
-        email: "lqrenawi@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "سماح يحيى محيسن", email: "smohaisen@ucas.edu.ps", role: "مدرس" },
-      { name: "حسام الدين عابد", email: "habed@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "إبراهيم محمد الأسطل",
-        email: "elastal@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "حامد عليان عجوة", email: "HAJWA5@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "أمل إبراهيم الكحلوت",
-        email: "AMAKAHLOUT@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "حسان منصور سلامة", email: "hsalama@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "عبدالله محمد الصعيدي",
-        email: "asaidy@ucas.edu.ps",
-        role: "مدرس",
-      },
-      {
-        name: "ابراهيم غسان المسحال",
-        email: "imeshal@ucas.edu.ps",
-        role: "مدرس",
-      },
-      {
-        name: "محمد مهاجر التلباني",
-        email: "mtelbani@ucas.edu.ps",
-        role: "مدرس",
-      },
-      {
-        name: "صالح سمير أبوشعبان",
-        email: "sabushaban@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "خالد جمال حجازي", email: "khegazy@ucas.edu.ps", role: "مدرس" },
-      { name: "هيثم محمد النجار", email: "hnajjar@ucas.edu.ps", role: "مدرس" },
-    ],
-  },
-  "نظم المعلومات الجغرافية": {
-    رئيس: "عمرو جمال قروط",
-    members: [
-      { name: "محمد حمزة حنوش", email: "mhannoosh@ucas.edu.ps", role: "مدرس" },
-      { name: "عمرو جمال قروط", email: "aqarrot@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "ياسر سهيل القيشاوي",
-        email: "ykishawi@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "تامر أسعد اشتيوي", email: "teshtawi@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "ماهر عبدالفتاح الحلاق",
-        email: "mhallaq@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "همام حسن أبودراز", email: "habudraz@ucas.edu.ps", role: "مدرس" },
-      { name: "محمد عثمان حبوب", email: "mhabboub@ucas.edu.ps", role: "مدرس" },
-      { name: "علي جميل صرار", email: "aabusrar@ucas.edu.ps", role: "مدرس" },
-      { name: "اكرم محمد ركاب", email: "arekab@ucas.edu.ps", role: "مدرس" },
-      { name: "شادي زهير كحيل", email: "skouhail@ucas.edu.ps", role: "مدرس" },
-    ],
-  },
-  "هندسة الحاسوب": {
-    رئيس: "د. محمد عوني مطر",
-    members: [
-      { name: "أكرم محمد رضوان", email: "aradwan@ucas.edu.ps", role: "مدرس" },
-      { name: "هالة محمد العزازي", email: "hazazi@ucas.edu.ps", role: "مدرس" },
-      { name: "سعد طارق ضاهر", email: "stdaher@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "شادي إبراهيم أبوضلفة",
-        email: "SHAABUDALFA@ucas.edu.ps",
-        role: "مدرس",
-      },
-      {
-        name: "سامر عبد الرؤوف ياغي",
-        email: "syaghi@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "مهند السيد كميل", email: "makmeil@ucas.edu.ps", role: "مدرس" },
-      { name: "سناء وفا الصايغ", email: "ssayegh@ucas.edu.ps", role: "مدرس" },
-      { name: "مروان حسن راضي", email: "mhradi@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "طارق ماهر التلمس",
-        email: "taltalmas@ucas.edu.ps",
-        role: "مدرس",
-      },
-      {
-        name: "جيهان يحيى الريش",
-        email: "jabuelreesh@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "خالد وليد الناجي", email: "kalnaji@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "هادي عبدالكريم النبريص",
-        email: "hnabriss@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "رامي رياض لبد", email: "rlubbad@ucas.edu.ps", role: "مدرس" },
-      { name: "محمد عبد العايدي", email: "malaydi@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "مأمون عبدالعزيز صالحة",
-        email: "masalha@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "محمد ماجد البايض", email: "malbayed@ucas.edu.ps", role: "مدرس" },
-      { name: "محمد شريف الدلو", email: "mdalo@ucas.edu.ps", role: "مدرس" },
-      { name: "عبدالله ادريس عودة", email: "aouda@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "محمود وليد خليل",
-        email: "makhalil@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "شاكر توفيق يونس", email: "syounis@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "سجى أحمد المدهون",
-        email: "salmadhun@ucas.edu.ps",
-        role: "مدرس",
-      },
-      {
-        name: "حمزة وجيه المبيض",
-        email: "halmobayed@ucas.edu.ps",
-        role: "مدرس",
-      },
-      {
-        name: "طارق عادل حرزالله",
-        email: "therzalla@ucas.edu.ps",
-        role: "مدرس",
-      },
-      {
-        name: "ساميه محمود حسونة",
-        email: "shassouna@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "سامح عوني سالم", email: "saSalem@ucas.edu.ps", role: "مدرس" },
-      { name: "رواء عادل دلول", email: "raDalloul@ucas.edu.ps", role: "مدرس" },
-      { name: "جعفر محمد الأغا", email: "jagha@ucas.edu.ps", role: "مدرس" },
-      { name: "عيد عدنان الآغا", email: "eagha@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "إسراء أحمد فروانة",
-        email: "IFARWANAH@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "يمنى عمرو الفرا", email: "yalfarra@ucas.edu.ps", role: "مدرس" },
-      { name: "ايه إبراهيم سمور", email: "asamour@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "محمد زاهر الشوربجي",
-        email: "MZALSHORBAJI@ucas.edu.ps",
-        role: "مدرس",
-      },
-      {
-        name: "عبدالجواد سمير شحادة",
-        email: "ASHEHADA@ucas.edu.ps",
-        role: "مدرس",
-      },
-      {
-        name: "عمرو مؤمن الواحد",
-        email: "aabdelwahed@ucas.edu.ps",
-        role: "مدرس",
-      },
-      {
-        name: "محمود دياب غزالة",
-        email: "mdghazaleh@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "محمود غازي الجمل", email: "maljamal@ucas.edu.ps", role: "مدرس" },
-      { name: "ثائر منذر الحنفي", email: "thanafi@ucas.edu.ps", role: "مدرس" },
-      { name: "أحمد مصطفى شعت", email: "ashaat@ucas.edu.ps", role: "مدرس" },
-      { name: "سجى جمال سحويل", email: "SSEHWEIL@ucas.edu.ps", role: "مدرس" },
-      { name: "عبد الله الصوفي", email: "aalsufi@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "سحراسماعيل رضوان الخير",
-        email: "sabuelkhair@ucas.edu.ps",
-        role: "مدرس",
-      },
-      {
-        name: "مرام سفيان هربيد",
-        email: "mabuharbid@ucas.edu.ps",
-        role: "مدرس",
-      },
-      {
-        name: "ميسرة خالد الهندي",
-        email: "MALHINDI@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "باسم محمد خلف", email: "bkhalaf@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "فاطمة عبد العزيز",
-        email: "fabdelaziz@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "وليد محمد مرتجى", email: "wmmortaja@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "محمد عبد الطهراوي",
-        email: "mtahrawi@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "محمد جهاد احمد", email: "mjahmed@ucas.edu.ps", role: "مدرس" },
-      { name: "ثائر نزار سهمود", email: "tsahmoud@ucas.edu.ps", role: "مدرس" },
-      { name: "عبد الرحمن معمر", email: "amuammer@ucas.edu.ps", role: "مدرس" },
-      { name: "ربا أحمد القدرة", email: "RQEDRA@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "تامر مجدي اليازوري",
-        email: "talyazory@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "هبه محمود لبد", email: "hmLubbad@ucas.edu.ps", role: "مدرس" },
-      { name: "جواد يوسف الزاملي", email: "jzamly@ucas.edu.ps", role: "مدرس" },
-      { name: "أسامة أمين حامد", email: "OHAMED@ucas.edu.ps", role: "مدرس" },
-      { name: "وليد خالد الصفدي", email: "WSAFADI@ucas.edu.ps", role: "مدرس" },
-      { name: "رشا علي ركاب", email: "RREKAB@ucas.edu.ps", role: "مدرس" },
-      { name: "هبة الله حرب", email: "HEBHARB@ucas.edu.ps", role: "مدرس" },
-      { name: "حمزه محمد عبيد", email: "HOBAID@ucas.edu.ps", role: "مدرس" },
-      { name: "فاطمة الزهراء", email: "FHABBASH@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "حسن ابراهيم السميري",
-        email: "hsmiry@ucas.edu.ps",
-        role: "مدرس",
-      },
-    ],
-  },
-  الإلكترونيات: {
-    رئيس: "د. محمد عوني مطر",
-    members: [
-      { name: "محمد حاتم مشتهى", email: "mmushtaha@ucas.edu.ps", role: "مدرس" },
-      { name: "طاهر عزالدين عابد", email: "tabed@ucas.edu.ps", role: "مدرس" },
-      { name: "محمد كامل أبوفول", email: "mabufoul@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "محمد سليم علي",
-        email: "malsheakhali@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "رأفت خليل السيقلي", email: "rsaikly@ucas.edu.ps", role: "مدرس" },
-      { name: "أحمد فؤاد النحال", email: "anahhal@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "حمدالله عبدالمجيد الاشقر",
-        email: "halashqar@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "نادر سليمان طالب", email: "ntaleb@ucas.edu.ps", role: "مدرس" },
-      { name: "عودة محمد الشكري", email: "ashokry@ucas.edu.ps", role: "مدرس" },
-      { name: "أحمد حسن ماضي", email: "amady@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "نورالدين بريك أبوبريك",
-        email: "nbriek@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "أحمد محمد سبيكه", email: "aspeka@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "عزالدين محمود سرحان",
-        email: "isarhan@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "محمد فرحان عبيد", email: "mubied@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "عبدالرحمن عبد دلول",
-        email: "adallol@ucas.edu.ps",
-        role: "مدرس",
-      },
-    ],
-  },
-  "الهندسة الزراعية": {
-    رئيس: "عبدالله عمر حامد",
-    members: [
-      {
-        name: "نزار عبدالعزيز الوحيدي",
-        email: "nwahidi@ucas.edu.ps",
-        role: "مدرس",
-      },
-      {
-        name: "عادل جميل عطاالله",
-        email: "ajAtallah@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "محمود حسني العمصي", email: "mamassi@ucas.edu.ps", role: "مدرس" },
-      { name: "يوسف زكريا شبير", email: "yshobair@ucas.edu.ps", role: "مدرس" },
-      { name: "ناهض مطر السبع", email: "nmsabea@ucas.edu.ps", role: "مدرس" },
-      {
-        name: "راتب إبراهيم سمور",
-        email: "rsammour@ucas.edu.ps",
-        role: "مدرس",
-      },
-      { name: "عبدالله عمر حامد", email: "ahamed@ucas.edu.ps", role: "مدرس" },
-    ],
-  },
-};
+const selectedProgramNames = new Set([
+  "هندسة أمن المعلومات السيبراني",
+  "علم البيانات والذكاء الاصطناعي",
+  "شبكات الحاسوب والإنترنت",
+  "أمن المعلومات",
+  "هندسة إلكترونيات السيارات",
+  "تكنولوجيا الأجهزة الإلكترونية",
+  "تكنولوجيا الطاقة الشمسية",
+]);
+const programs = allPrograms.filter((program) =>
+  selectedProgramNames.has(program.name),
+);
 
-// ========== مشرفون ومنسقون ==========
+// ========== منسقو التخصصات ==========
 const keyStaff = [
   {
     name: "م. محمود الشيخ خليل",
-    role: "مرشد اختصاص هندسة الأمن السيبراني",
+    role: "منسق تخصص أمن المعلومات",
     email: "makhalil@ucas.edu.ps",
-    telegram: "https://t.me/khalil2535",
   },
   {
-    name: "م. سامح عوني سالم",
+    name: "م. سامح سالم",
     role: "منسق تخصص هندسة أمن المعلومات السيبراني",
     email: "sasalem@ucas.edu.ps",
-    whatsapp: "https://wa.me/972592791426",
   },
   {
-    name: "م. محمد الشوربجي",
-    role: "منسق اختصاص هندسة الأمن السيبراني",
-    email: "MZALSHORBAJI@ucas.edu.ps",
-    whatsapp: "https://wa.me/972599402456",
+    name: "د. طارق التلمس",
+    role: "منسق تخصص علم البيانات والذكاء الاصطناعي",
+    email: "taltalmas@ucas.edu.ps",
   },
   {
-    name: "د. سناء الصايغ",
-    role: "منسق اختصاص هندسة الأمن السيبراني",
-    email: "ssayegh@ucas.edu.ps",
-    whatsapp: "https://wa.me/972597090866",
-  },
-  {
-    name: "م. تامر اليازوري",
-    role: "منسق اختصاص دبلوم أمن المعلومات",
-    email: "talyazory@ucas.edu.ps",
-    whatsapp: "https://wa.me/972592103818",
-  },
-  {
-    name: "د. محمد الطهراوي",
-    role: "منسق اختصاص علم البيانات والذكاء الاصطناعي",
-    email: "mtahrawi@ucas.edu.ps",
-    whatsapp: "https://wa.me/601111318262",
+    name: "م. مؤمن كسكين",
+    role: "منسق تخصص شبكات الحاسوب والإنترنت",
   },
 ];
 
-// ========== الساعات المكتبية ==========
-const officeHours = [
+// ========== مساقات الهيئة التدريسية ==========
+const courseAssignments = [
   {
     name: "عودة الشكري",
     courses: ["لغة انجليزية تخصصية"],
-    times: ["الإثنين 10:00 - 12:00"],
-    contact: "https://meet.google.com/smd-zhdx-gan",
-    type: "meet",
   },
   {
     name: "سامح عوني محمود سالم",
@@ -1626,34 +1260,18 @@ const officeHours = [
       "حوسبة سحابية",
       "كشف تسلل",
     ],
-    times: ["الثلاثاء 11:00 - 12:00", "الأربعاء 11:00 - 12:00"],
-    contact: "https://meet.google.com/gfw-ibwg-cpu",
-    type: "meet",
   },
   {
     name: "عبدالكريم ايمن ابوسمرة",
     courses: ["تراكيب البيانات", "لغات برمجة علوم البيانات"],
-    times: [
-      "السبت 11:00 - 12:00",
-      "الإثنين 11:00 - 12:00",
-      "الأربعاء 11:00 - 12:00",
-    ],
-    contact: "https://meet.google.com/ekq-mcjn-iwc",
-    type: "meet",
   },
   {
     name: "وليد خالد وليد الصفدي",
     courses: ["لغات برمجة علم البيانات (عملي)"],
-    times: ["السبت 17:00 - 18:00"],
-    contact: "https://meet.google.com/bqu-vizg-duz",
-    type: "meet",
   },
   {
     name: "جواد يوسف ابراهيم الزاملي",
     courses: ["مشروع تخرج ٢"],
-    times: ["الأحد 12:00 - 13:00"],
-    contact: "اللقاء وجاهي بالكلية بخانيونس",
-    type: "in-person",
   },
   {
     name: "عبد الجواد سمير قديح شحادة",
@@ -1664,115 +1282,62 @@ const officeHours = [
       "مقدمة في قواعد البيانات (عملي)",
       "شبكات متقدمة (عملي)",
     ],
-    times: ["الإثنين 10:00 - 12:00", "الأربعاء 10:00 - 11:00"],
-    contact: "https://meet.google.com/jcs-bivo-brt",
-    type: "meet",
   },
   {
     name: "محمد عوني مطر",
     courses: ["معمارية الحاسوب", "الرياضيات المتقطعة", "الرياضيات المنفصلة"],
-    times: ["الإثنين 11:00 - 12:00"],
-    contact: "",
-    type: "",
   },
   {
     name: "د/ محمد عبد الرؤوف العايدي",
     courses: ["الرياضيات المتقطعة"],
-    times: ["الخميس 08:00 - 11:00"],
-    contact: "📞  +972599055825",
-    type: "phone",
   },
   {
     name: "د. سناء وفا الصايغ",
     courses: ["إدارة وتحليل التهديدات والمخاطر"],
-    times: [
-      "الأحد 10:00 - 11:00",
-      "الثلاثاء 13:00 - 14:00",
-      "الخميس 14:00 - 15:00",
-    ],
-    contact: "https://meet.google.com/qbm-chdu-ddu",
-    type: "meet",
   },
   {
     name: "ربا احمد محمود القدره",
     courses: ["الرياضيات المنفصلة", "لغة برمجة 2 عملي"],
-    times: ["السبت 18:00 - 19:00"],
-    contact: "https://meet.google.com/poy-ueiz-qkn",
-    type: "meet",
   },
   {
     name: "ميسرة خالد الهندي",
     courses: ["أمن نظم التشغيل - عمليات التطوير"],
-    times: [
-      "السبت 08:00 - 10:00",
-      "الأحد 08:00 - 10:00",
-      "الإثنين 09:00 - 10:00",
-    ],
-    contact: "https://meet.google.com/kja-xpem-mbu",
-    type: "meet",
   },
   {
     name: "فاطمة الزهراء خالد الهباش",
     courses: ["لغات برمجة علم البيانات"],
-    times: ["الأحد 15:00 - 16:00"],
-    contact: "https://meet.google.com/zqu-iqff-ofo",
-    type: "meet",
   },
   {
     name: "عبدالرحمن حمدي سلمان معمر",
     courses: ["نظم تشغيل - دبلوم", "قرصنة أخلاقية 1"],
-    times: ["السبت 08:00 - 10:00", "الأحد 08:00 - 10:00"],
-    contact: "https://meet.google.com/oys-poqa-ohn",
-    type: "meet",
   },
   {
     name: "رشا ابو ركاب",
     courses: ["برمجة لغات علم البيانات عملي"],
-    times: ["السبت 15:00 - 16:00"],
-    contact: "https://meet.google.com/qko-qkmb-yne",
-    type: "meet",
   },
   {
     name: "مرام سفيان أبوهربيد",
     courses: ["لغات برمجة علم بيانات نظري"],
-    times: ["الثلاثاء 17:00 - 18:00"],
-    contact: "https://meet.google.com/wqd-yuft-tdz",
-    type: "meet",
   },
   {
     name: "طارق ماهر خليل التلمس",
     courses: ["معالجة اللغات الطبيعية"],
-    times: ["الخميس 08:00 - 09:00"],
-    contact: "سيتم نشره على كلاس روم",
-    type: "in-person",
   },
   {
     name: "عيد عدنان عيد الاغا",
     courses: ["امن الشبكات", "شبكات متقدمه سيسكو٢", "انترنت الأشياء"],
-    times: ["السبت 08:00 - 10:00"],
-    contact: "عبر جوجل تشات: Eagha@ucas.edu.ps",
-    type: "chat",
   },
   {
-    name: "نائل ابوراس",
-    courses: ["الخوارزميات وتراكيب البيانات"],
-    times: ["السبت 08:00 - 09:00"],
-    contact: "وجاهي أو واتس اب",
-    type: "in-person",
+    name: "م. نائل أبو راس",
+    courses: ["مقدمة في قواعد البيانات", "الخوارزميات وتراكيب البيانات"],
   },
   {
     name: "مروان حسن راضي",
     courses: ["التصميم الرقمي", "المعالج الدقيق"],
-    times: ["الأحد 14:00 - 15:00"],
-    contact: "https://meet.google.com/wzj-bqhm-duj",
-    type: "meet",
   },
   {
     name: "رواء عادل دلول",
     courses: ["لغة برمجة 2 نظري/عملي", "الحوسبة السحابية"],
-    times: ["الخميس 16:00 - 18:00"],
-    contact: "https://meet.google.com/wap-twyj-jni",
-    type: "meet",
   },
   {
     name: "تامر مجدي اليازوري",
@@ -1781,16 +1346,10 @@ const officeHours = [
       "مقدمة في قواعد البيانات",
       "تدريب ميداني",
     ],
-    times: ["الأحد 13:00 - 14:00", "الثلاثاء 13:00 - 14:00"],
-    contact: "https://meet.google.com/nny-ioas-jha",
-    type: "meet",
   },
   {
     name: "محمود الشيخ خليل",
     courses: ["مبادئ شبكات", "معالج دقيق عملي"],
-    times: ["الأحد 08:00 - 10:00"],
-    contact: "https://meet.google.com/kgq-bxxy-eqe",
-    type: "meet",
   },
 ];
 
@@ -1800,7 +1359,7 @@ document.getElementById("menuToggle").addEventListener("click", () => {
   nav.classList.toggle("active");
   document
     .getElementById("menuToggle")
-    .setAttribute("aria-expanded", nav.classList.contains("active"));
+    .setAttribute("aria-expanded", String(nav.classList.contains("active")));
 });
 
 // إغلاق القائمة عند الضغط خارجها
@@ -1820,10 +1379,11 @@ document.addEventListener("click", (e) => {
 });
 document
   .querySelectorAll(".nav-links a")
-  .forEach((l) =>
-    l.addEventListener("click", () =>
-      document.getElementById("navLinks").classList.remove("active"),
-    ),
+  .forEach((link) =>
+    link.addEventListener("click", () => {
+      document.getElementById("navLinks").classList.remove("active");
+      document.getElementById("menuToggle").setAttribute("aria-expanded", "false");
+    }),
   );
 
 // ========== Scroll Top ==========
@@ -1867,8 +1427,7 @@ if (statsSection) observer.observe(statsSection);
 
 // ========== Programs ==========
 const grid = document.getElementById("programsGrid");
-let currentFilter = "all",
-  currentDegree = "all",
+let currentDegree = "all",
   currentSearch = "";
 
 document.getElementById("searchInput").addEventListener("input", (e) => {
@@ -1885,22 +1444,9 @@ document.querySelectorAll(".deg-btn").forEach((b) =>
     renderPrograms();
   }),
 );
-document.querySelectorAll(".filter-btn").forEach((b) =>
-  b.addEventListener("click", function () {
-    document
-      .querySelectorAll(".filter-btn")
-      .forEach((x) => x.classList.remove("active"));
-    this.classList.add("active");
-    currentFilter = this.dataset.filter;
-    renderPrograms();
-  }),
-);
-
 function renderPrograms() {
   grid.innerHTML = "";
   let filtered = programs;
-  if (currentFilter !== "all")
-    filtered = filtered.filter((p) => p.dept === currentFilter);
   if (currentDegree !== "all")
     filtered = filtered.filter((p) => p.degree === currentDegree);
   if (currentSearch.trim()) {
@@ -1976,224 +1522,68 @@ modal.addEventListener("click", (e) => {
 });
 
 // ========== الهيئة الأكاديمية ==========
+const lecturers = Array.from(
+  new Map(
+    courseAssignments.map((teacher) => [
+      teacher.name,
+      { name: teacher.name, courses: teacher.courses },
+    ]),
+  ).values(),
+);
 
-// تجميع كل المدرسين من كل الأقسام في مصفوفة واحدة مع استبعاد المكررين في keyStaff
-const keyEmails = keyStaff.map((k) => k.email.toLowerCase());
-const allTeachers = [];
-for (let dept in staffData) {
-  staffData[dept].members.forEach((m) => {
-    if (!keyEmails.includes(m.email.toLowerCase())) {
-      allTeachers.push({ ...m, dept });
-    }
-  });
-}
-
-// عرض عدد محدود أولي
-const ITEMS_PER_PAGE = 12;
-let showingAll = false;
 function renderTeachers(filterText = "") {
   const container = document.getElementById("staffCardsGrid");
-  const showMoreBtn = document.getElementById("showMoreBtn");
-  const showMoreContainer = document.getElementById("showMoreContainer");
-
-  const filtered = allTeachers.filter(
-    (t) => t.name.includes(filterText) || t.email.includes(filterText),
+  const query = filterText.trim().toLocaleLowerCase();
+  const filtered = lecturers.filter(
+    (teacher) =>
+      teacher.name.toLocaleLowerCase().includes(query) ||
+      teacher.courses.some((course) =>
+        course.toLocaleLowerCase().includes(query),
+      ),
   );
-  const visible = showingAll ? filtered : filtered.slice(0, ITEMS_PER_PAGE);
-
-  container.innerHTML = "";
-  visible.forEach((t) => {
-    const card = document.createElement("div");
-    card.className = "staff-card";
-    card.innerHTML = `
-            <div class="staff-icon"><i class="fas fa-user-circle"></i></div>
-            <h4>${t.name}</h4>
-            <p class="staff-role">${t.role}</p>
-            <a href="mailto:${t.email}" class="btn btn-contact"><i class="fas fa-envelope"></i> تواصل</a>
-        `;
-    card.addEventListener("click", (e) => {
-      if (!e.target.closest("a")) {
-        // الانتقال إلى تبويب الساعات المكتبية مع البحث عن هذا المدرس
-        switchStaffTab("hours");
-        const searchInput = document.getElementById("hoursSearch");
-        searchInput.value = t.name;
-        filterOfficeHours(t.name);
-      }
-    });
-    container.appendChild(card);
-  });
-
-  if (filtered.length > ITEMS_PER_PAGE) {
-    showMoreContainer.style.display = "block";
-    showMoreBtn.textContent = showingAll
-      ? "عرض أقل ▲"
-      : `عرض كل المدرسين (${filtered.length - ITEMS_PER_PAGE} متبقي)`;
-  } else {
-    showMoreContainer.style.display = "none";
-  }
-}
-document.getElementById("showMoreBtn").addEventListener("click", () => {
-  showingAll = !showingAll; // عكس الحالة
-  renderTeachers(document.getElementById("teacherSearch").value);
-});
-
-document.getElementById("teacherSearch").addEventListener("input", (e) => {
-  showingAll = false; // إعادة التعيين عند البحث
-  renderTeachers(e.target.value);
-});
-
-// بناء رؤساء الأقسام
-function buildLeaders() {
-  const leadersGrid = document.getElementById("leadersGrid");
-  const uniqueLeaders = new Map();
-  for (let [dept, data] of Object.entries(staffData)) {
-    if (!uniqueLeaders.has(data.رئيس)) uniqueLeaders.set(data.رئيس, [dept]);
-    else uniqueLeaders.get(data.رئيس).push(dept);
-  }
-  leadersGrid.innerHTML = "";
-  uniqueLeaders.forEach((depts, name) => {
-    const title =
-      depts.length > 1
-        ? "رئيس قسم " + depts.join(" و ")
-        : "رئيس قسم " + depts[0];
-    const card = document.createElement("div");
-    card.className = "leader-card";
-    card.innerHTML = `<i class="fas fa-user-tie"></i><h4>${name}</h4><p>${title}</p>`;
-    leadersGrid.appendChild(card);
-  });
+  const cards = filtered.map(
+    (teacher) => `
+      <article class="staff-card">
+        <div class="staff-icon" aria-hidden="true"><i class="fas fa-user-tie"></i></div>
+        <h3>${teacher.name}</h3>
+        <p class="staff-role">المساقات التي يدرّسها</p>
+        <ul class="staff-courses">${teacher.courses.map((course) => `<li>${course}</li>`).join("")}</ul>
+      </article>
+    `,
+  );
+  container.innerHTML = cards.length
+    ? cards.join("")
+    : '<p class="empty-state">لا توجد نتائج مطابقة.</p>';
 }
 
-// بناء المنسقين/المشرفين
+document.getElementById("teacherSearch").addEventListener("input", (event) => {
+  renderTeachers(event.target.value);
+});
+
 function buildKeyStaff() {
   const container = document.getElementById("keyStaffGrid");
-  container.innerHTML = keyStaff
-    .map(
-      (m) => `
-        <div class="key-staff-card">
-            <div class="staff-icon"><i class="fas fa-star"></i></div>
-            <h4>${m.name}</h4>
-            <p class="staff-role">${m.role}</p>
-            <div class="staff-links">
-                <a href="mailto:${m.email}" class="staff-link email"><i class="fas fa-envelope"></i> إيميل</a>
-                ${m.whatsapp ? `<a href="${m.whatsapp}" target="_blank" class="staff-link whatsapp"><i class="fab fa-whatsapp"></i> واتساب</a>` : ""}
-                ${m.telegram ? `<a href="${m.telegram}" target="_blank" class="staff-link telegram"><i class="fab fa-telegram"></i> تليجرام</a>` : ""}
-            </div>
-        </div>
+  const cards = keyStaff.map(
+    (coordinator) => `
+      <article class="key-staff-card">
+        <div class="staff-icon" aria-hidden="true"><i class="fas fa-user-tie"></i></div>
+        <h3>${coordinator.name}</h3>
+        <p class="staff-role">${coordinator.role}</p>
+        ${coordinator.email ? `<a class="staff-link email" href="mailto:${coordinator.email}"><i class="fas fa-envelope" aria-hidden="true"></i> البريد الإلكتروني</a>` : ""}
+      </article>
     `,
-    )
-    .join("");
-}
-
-// ========== التبديل بين تبويبي الهيئة التدريسية والساعات المكتبية ==========
-function switchStaffTab(tabName) {
-  document
-    .querySelectorAll(".staff-tab-content")
-    .forEach((el) => el.classList.remove("active"));
-  document
-    .querySelectorAll(".tab-btn")
-    .forEach((btn) => btn.classList.remove("active"));
-  if (tabName === "teaching") {
-    document.getElementById("teaching-tab").classList.add("active");
-    document.querySelector(".tab-btn:nth-child(1)").classList.add("active");
-  } else {
-    document.getElementById("hours-tab").classList.add("active");
-    document.querySelector(".tab-btn:nth-child(2)").classList.add("active");
-  }
-}
-
-// ========== الساعات المكتبية ==========
-function renderOfficeHours(data) {
-  const container = document.getElementById("officeHoursTable");
-  let rows = data
-    .map((h) => {
-      const coursesHtml = h.courses
-        .map((c) => `<span class="course-badge">${c}</span>`)
-        .join(" ");
-      const timesHtml = h.times
-        .map((t) => `<span class="time-badge">${t}</span>`)
-        .join(" ");
-      let contactHtml = "";
-      if (h.type === "meet" || h.type === "form") {
-        contactHtml = `<a href="${h.contact}" class="link-btn" target="_blank">${h.type === "form" ? "النموذج" : "Google Meet"}</a>`;
-      } else if (h.type === "phone") {
-        contactHtml = h.contact;
-      } else if (h.type === "chat") {
-        contactHtml = h.contact;
-      } else {
-        contactHtml = h.contact;
-      }
-      return `<tr>
-            <td>${h.name}</td>
-            <td>${coursesHtml}</td>
-            <td>${timesHtml}</td>
-            <td>${contactHtml}</td>
-        </tr>`;
-    })
-    .join("");
-
-  container.innerHTML = `
-        <table>
-            <thead><tr><th>اسم المدرس</th><th>المساقات</th><th>المواعيد</th><th>رابط التواصل</th></tr></thead>
-            <tbody>${rows}</tbody>
-        </table>
-    `;
-}
-
-function filterOfficeHours(searchTerm = "") {
-  const term = searchTerm.trim().toLowerCase();
-  let filtered = officeHours;
-
-  // فلترة حسب اليوم
-  if (currentDayFilter !== "all") {
-    filtered = filtered.filter((h) =>
-      h.times.some((t) => t.includes(currentDayFilter)),
-    );
-  }
-
-  // فلترة حسب النص
-  if (term) {
-    filtered = filtered.filter(
-      (h) =>
-        h.name.toLowerCase().includes(term) ||
-        h.courses.some((c) => c.toLowerCase().includes(term)),
-    );
-  }
-  renderOfficeHours(filtered);
-}
-
-document
-  .getElementById("hoursSearch")
-  .addEventListener("input", (e) => filterOfficeHours(e.target.value));
-
-let currentDayFilter = "all";
-// Listener لأزرار الأيام (مع التحقق من وجود العنصر)
-const daysFilterElement = document.getElementById("daysFilter");
-if (daysFilterElement) {
-  daysFilterElement.addEventListener("click", (e) => {
-    if (e.target.classList.contains("day-btn")) {
-      document
-        .querySelectorAll(".day-btn")
-        .forEach((b) => b.classList.remove("active"));
-      e.target.classList.add("active");
-      currentDayFilter = e.target.dataset.day;
-      filterOfficeHours(document.getElementById("hoursSearch").value);
-    }
-  });
+  );
+  container.innerHTML = cards.join("");
 }
 // ========== Init ==========
 document.addEventListener("DOMContentLoaded", () => {
   renderPrograms();
-  buildLeaders();
   buildKeyStaff();
   renderTeachers();
-  renderOfficeHours(officeHours);
 
-  // السنة الديناميكية
   const yearElement = document.getElementById("currentYear");
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
   }
-  // افتراضياً تبويب الهيئة التدريسية مفتوح
 });
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && modal.classList.contains("show")) {
